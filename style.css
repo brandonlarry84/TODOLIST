@@ -1,0 +1,179 @@
+:root {
+    --dark: #374151;
+    --darker: #8a2be2;
+    --darkest: #6495ed;
+    --light: #696969;
+    --pink: #c71585;
+    --green: #40e0d0;
+    --gray: #2f4f4f;
+    --brown: #f4a460;
+    --tan: #d2b48c;
+    --red: #b22222;
+    --blue: #4b0082;
+    --orange: #ff7f00;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'fira sans', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: linear-gradient(to right, var(--dark), var(--light));
+    color: aliceblue;
+}
+
+header {
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--darker);
+    margin-bottom: 1rem;
+}
+
+#new-to-do-form {
+    display: flex;
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    #new-to-do-form {
+        flex-direction: column;
+    }
+
+    #new-task-input {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+input,
+button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#new-task-input {
+    flex: 1 1 0%;
+    background-color: var(--light);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    color: var(--orange);
+    font-size: 1.25rem;
+}
+
+#new-task-input::placeholder {
+    color: rgb(1, 119, 223);
+}
+
+#new-task-submit {
+    color: var(--darker);
+    font-size: 1.25rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right, var(--pink), var(--darker));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#new-task-submit:hover {
+    opacity: 0.9;
+    color: var(--orange);
+}
+
+#new-task-submit:active {
+    opacity: 0.5;
+}
+
+main {
+    flex: 1 1 0%;
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.to-do-list {
+    padding: 1rem;
+}
+
+.to-do-list h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--darker);
+    margin-bottom: 1rem;
+}
+
+#tasks .task {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--blue);
+    padding: 1rem;
+    border-radius: 45px;
+    margin-bottom: 1rem;
+}
+
+#tasks .task .text {
+    font-weight: 700;
+    font-size: 1.123rem;
+    width: 100%;
+    display: block;
+    transition: 0.4s;
+    color: var(--green);
+}
+
+#tasks .task.completed .text {
+    text-decoration: line-through;
+    color: var(--green);
+}
+
+#tasks .task .actions {
+    display: flex;
+    margin: 0 -0.5rem;
+}
+
+#tasks .task .actions button {
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+#tasks .task .actions button:hover {
+    opacity: 0.9;
+    color: var(--orange);
+}
+
+#tasks .task .actions button:active {
+    opacity: 0.5;
+}
+
+#tasks .task.deleted {
+    text-decoration: line-through;
+    color: var(--red);
+    transition: 0.5s;
+}
+
+#tasks .task.deleted .text {
+    pointer-events: none; 
+}
